@@ -1,0 +1,15 @@
+[project]
+name = "atbs-python"
+version = "0.1.0"
+description = "Exercises and projects from Automate the Boring Stuff with Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyperclip>=1.9.0",
+    "pyinputplus>=0.2.12",
+    "requests>=2.31.0",
+    "send2trash>=1.8.2",
+]
+
+[tool.uv]
+managed = true

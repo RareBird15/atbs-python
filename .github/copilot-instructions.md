@@ -1,0 +1,5 @@
+- Programming Language: Python 3.12+
+- Environment: Arch Linux (WSL) using `uv` for package management.
+- Coding Style: Prefer clear, non-spatial logic.
+- Accessibility: I am a screen reader user; ensure code comments and structure are descriptive and avoid visual-heavy explanations.
+- Tools: Prioritize CLI tools and standard libraries over GUI solutions.
