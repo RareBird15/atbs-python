@@ -11,4 +11,26 @@ Workspace for "Automate the Boring Stuff with Python" exercises.
 ## Progress
 
 - [ ] Chapter 1: Python Basics
-- [ ] Chapter 2: Flow Control
+- [ ] Chapter 2: If-Else and Flow Control
+- [ ] Chapter 3: Loops
+- [ ] Chapter 4: Functions
+- [ ] Chapter 5: Debugging
+- [ ] Chapter 6: Lists
+- [ ] Chapter 7: Dictionaries and Structuring Data
+- [ ] Chapter 8: Strings and Text Editing
+- [ ] Chapter 9: Text Pattern Matching with Regular Expressions
+- [ ] Chapter 10: Reading and Writing Files
+- [ ] Chapter 11: Organizing Files
+- [ ] Chapter 12: Designing and Deploying Command Line Programs
+- [ ] Chapter 13: Web Scraping
+- [ ] Chapter 14: Excel Spreadsheets
+- [ ] Chapter 15: Google Sheets
+- [ ] Chapter 16: SQLite Databases
+- [ ] Chapter 17: PDF and Word Documents
+- [ ] Chapter 18: CSV, JSON, and XML Files
+- [ ] Chapter 19: Keeping Time, Scheduling Tasks, and Launching Programs
+- [ ] Chapter 20: Sending Email, Texts, and Push Notifications
+- [ ] Chapter 21: Making Graphs and Manipulating Images
+- [ ] Chapter 22: Recognizing Text in Images
+- [ ] Chapter 23: Controlling the Keyboard and Mouse
+- [ ] Chapter 24: Text-to-Speech and Speech Recognition Engines
