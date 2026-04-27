@@ -3,61 +3,47 @@
 
 import logging
 
-from exercises.utils import setup_exercise_logging
+from exercises.utils import NonPositiveError, get_validated_int, setup_exercise_logging
 
 # Configure logging to output to the console (stdout)
 logger = logging.getLogger(__name__)
 
 
-def get_dimension(label: str) -> int:
-    """Prompt the user for a dimension and return it as an integer.
+class Rectangle:
+    """A class representing a rectangle."""
 
-    Args:
-        label (str): The name of the dimension, like 'width' or 'length'.
+    def __init__(self, length: int, width: int) -> None:
+        """Initialize the rectangle and validate dimensions.
 
-    Returns:
-        int: The validated integer dimension provided by the user.
-    """
-    while True:
-        user_input = input(f'Enter the {label} of the rectangle: ')
-        try:
-            value = int(user_input)
-        except ValueError:
-            logger.warning(
-                'Invalid input. Please enter a valid integer for the %s.',
-                label,
-            )
-        else:
-            if value <= 0:
-                logger.warning('Please enter a positive integer for the %s.', label)
-                continue
-            return value
+        Args:
+            length (int): The length of the rectangle.
+            width (int): The width of the rectangle.
 
+        Raises:
+            NonPositiveError: If either dimension is not positive.
+        """
+        if length <= 0 or width <= 0:
+            # Here we use your custom error!
+            raise NonPositiveError
 
-def calculate_perimeter(length: int, width: int) -> int:
-    """Calculate the perimeter of a rectangle.
+        self.length = length
+        self.width = width
 
-    Args:
-        length (int): The length of the rectangle.
-        width (int): The width of the rectangle.
+    def area(self) -> int:
+        """Calculate the area.
 
-    Returns:
-        int: The perimeter of the rectangle.
-    """
-    return 2 * (length + width)
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.length * self.width
 
+    def perimeter(self) -> int:
+        """Calculate the perimeter.
 
-def calculate_area(length: int, width: int) -> int:
-    """Calculate the area of a rectangle.
-
-    Args:
-        length (int): The length of the rectangle.
-        width (int): The width of the rectangle.
-
-    Returns:
-        int: The area of the rectangle.
-    """
-    return length * width
+        Returns:
+            int: The perimeter of the rectangle.
+        """
+        return 2 * (self.length + self.width)
 
 
 def main() -> None:
@@ -65,14 +51,15 @@ def main() -> None:
     setup_exercise_logging()
     logger.info('Starting calculation...')
 
-    length = get_dimension('length')
-    width = get_dimension('width')
+    length = get_validated_int('Enter the length of the rectangle:')
+    width = get_validated_int('Enter the width of the rectangle:')
 
-    perimeter = calculate_perimeter(length, width)
-    area = calculate_area(length, width)
-
-    logger.info('The perimeter of the rectangle is: %d', perimeter)
-    logger.info('The area of the rectangle is: %d', area)
+    try:
+        rect = Rectangle(length, width)
+        logger.info('Area: %d', rect.area())
+        logger.info('Perimeter: %d', rect.perimeter())
+    except NonPositiveError:
+        logger.exception('Calculation failed')
 
 
 if __name__ == '__main__':
