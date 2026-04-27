@@ -23,7 +23,7 @@ def get_dimension(label: str) -> int:
         try:
             value = int(user_input)
         except ValueError:
-            logger.exception(
+            logger.warning(
                 'Invalid input. Please enter a valid integer for the %s.',
                 label,
             )
