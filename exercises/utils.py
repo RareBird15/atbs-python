@@ -10,6 +10,18 @@ logger = logging.getLogger(__name__)
 class NonPositiveError(Exception):
     """Exception raised when a dimension is zero or negative."""
 
+    message: str
+
+    def __init__(self, message: str = 'Numbers must be positive.') -> None:
+        """Initialize the error with a message.
+
+        Args:
+            message (str, optional): The error message to show.
+            Defaults to 'Numbers must be positive.'.
+        """
+        self.message = message
+        super().__init__(self.message)
+
 
 def get_validated_int(prompt: str, min_value: int | None = 1) -> int:
     """Prompt for an integer and validate it against a minimum value.
