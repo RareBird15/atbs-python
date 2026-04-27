@@ -2,10 +2,10 @@
 """Return the perimeter and area of a rectangle given its length and width."""
 
 import logging
-import sys
+
+from exercises.utils import setup_exercise_logging
 
 # Configure logging to output to the console (stdout)
-logging.basicConfig(level=logging.INFO, format='%(message)s', stream=sys.stdout)
 logger = logging.getLogger(__name__)
 
 
@@ -62,6 +62,9 @@ def calculate_area(length: int, width: int) -> int:
 
 def main() -> None:
     """Run the perimeter and area calculator program."""
+    setup_exercise_logging()
+    logger.info('Starting calculation...')
+
     length = get_dimension('length')
     width = get_dimension('width')
 
